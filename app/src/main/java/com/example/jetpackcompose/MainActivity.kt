@@ -88,7 +88,7 @@ fun JetpackImage(text1: String, text2: String, text3: String) {
         Box {
             Image(
                 painter = image,
-                //alignment = Alignment.TopStart,
+                alignment = Alignment.TopCenter,
                 contentDescription = null,
                 modifier = Modifier
                   .width(100.dp),
