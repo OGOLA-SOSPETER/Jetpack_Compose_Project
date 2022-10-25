@@ -35,7 +35,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Texts(getString(R.string.Jetpack_compose_title), getString(R.string.jetpack_definition),"In this tutorial, you build a simple UI component with declarative functions. You call Compose functions to say what elements you want and the Compose compiler does the rest. Compose is built around Composable functions. These functions let you define your app\\'s UI programmatically because they let you describe how it should look and provide data dependencies, rather than focus on the process of the UI\\'s construction, such as initializing an element and then attaching it to a parent. To create a Composable function, you add the @Composable annotation to the function name.")
+                    JetpackImage(getString(R.string.Jetpack_compose_title), getString(R.string.jetpack_definition),"In this tutorial, you build a simple UI component with declarative functions. You call Compose functions to say what elements you want and the Compose compiler does the rest. Compose is built around Composable functions. These functions let you define your app\\'s UI programmatically because they let you describe how it should look and provide data dependencies, rather than focus on the process of the UI\\'s construction, such as initializing an element and then attaching it to a parent. To create a Composable function, you add the @Composable annotation to the function name.")
                 }
             }
         }
@@ -44,26 +44,26 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Texts(text1 : String, text2 : String, text3 : String) {
-    Row{
         Column{
             Text(
                 text = text1,
 
                 fontSize = 24.sp,
                 modifier = Modifier
-                    .background(color = Color.Cyan)
+                    //.background(color = Color.Cyan)
                     .fillMaxWidth()
-                    .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 16.dp)
+                    .align(alignment = Alignment.CenterHorizontally)
+                    .padding(start = 16.dp, end = 16.dp, top = 150.dp, bottom = 16.dp)
                 // .wrapContentWidth(Alignment.CenterHorizontally)
             )
 
             Text(
                 text = text2,
                 textAlign = TextAlign.Justify,
-                fontSize = 20.sp,
+                fontSize = 18.sp,
                 modifier = Modifier
-                    .background(color = Color.Magenta)
-                    .padding(start = 16.dp, end = 16.dp),
+                    .background(color = Color.White)
+                    .padding(start = 16.dp, end = 16.dp, top = 0.dp),
 
 
 
@@ -71,36 +71,43 @@ fun Texts(text1 : String, text2 : String, text3 : String) {
             Text(
                 text = text3,
                 textAlign = TextAlign.Justify,
-                fontSize = 20.sp,
+                fontSize = 18.sp,
                 modifier = Modifier
-                    .background(color = Color.LightGray)
+                    .background(color = Color.White)
 
-                    .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 16.dp)
+                    .padding(start = 16.dp, end = 16.dp, top = 20.dp, bottom = 16.dp)
             )
         }
     }
 
-}
+
 
 @Composable
 fun JetpackImage(text1: String, text2: String, text3: String) {
+    Column{
         val image = painterResource(R.drawable.bg_compose_background)
-        Box {
-            Image(
-                painter = image,
-                alignment = Alignment.TopCenter,
-                contentDescription = null,
-                modifier = Modifier
-                  .width(100.dp),
-                contentScale = ContentScale.Crop
-            )
-            Texts(
-                "Jetpack Compose tutorial",
-                "Jetpack Compose is a modern toolkit for building native Android UI. Compose simplifies and accelerates UI development on Android with less code, powerful tools, and intuitive Kotlin APIs.",
-                "In this tutorial, you build a simple UI component with declarative functions. You call Compose functions to say what elements you want and the Compose compiler does the rest. Compose is built around Composable functions. These functions let you define your app\\'s UI programmatically because they let you describe how it should look and provide data dependencies, rather than focus on the process of the UI\\'s construction, such as initializing an element and then attaching it to a parent. To create a Composable function, you add the @Composable annotation to the function name."
-            )
+
+            Box {
+                Image(
+                    painter = image,
+                    alignment = Alignment.TopCenter,
+                    contentDescription = null,
+                    modifier = Modifier
+                        //.fillMaxWidth()
+                        .padding(start = 2.dp, end = 2.dp,top = 2.dp)
+                        .width(399.dp)
+                        .height(130.dp),
+                    contentScale = ContentScale.Crop
+                )
+                Texts(
+                    "Jetpack Compose tutorial",
+                    "Jetpack Compose is a modern toolkit for building native Android UI. Compose simplifies and accelerates UI development on Android with less code, powerful tools, and intuitive Kotlin APIs.",
+                    "In this tutorial, you build a simple UI component with declarative functions. You call Compose functions to say what elements you want and the Compose compiler does the rest. Compose is built around Composable functions. These functions let you define your app\\'s UI programmatically because they let you describe how it should look and provide data dependencies, rather than focus on the process of the UI\\'s construction, such as initializing an element and then attaching it to a parent. To create a Composable function, you add the @Composable annotation to the function name."
+                )
+            }
         }
     }
+
 
 @Preview(showBackground = true)
 @Composable
